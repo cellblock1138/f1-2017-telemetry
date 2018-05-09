@@ -709,16 +709,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glC-5y-PDg">
-                                <rect key="frame" x="141" y="79" width="198" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="132 km/h" id="PSE-cV-fge">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="glC-5y-PDg">
+                                <rect key="frame" x="141" y="100" width="198" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="noc-sE-LRf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="194" id="zNY-z8-GIf"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="132 km/h" id="PSE-cV-fge">
                                     <font key="font" metaFont="system" size="42"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="glC-5y-PDg" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="1xM-nx-zU8"/>
+                            <constraint firstItem="glC-5y-PDg" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="uHd-LR-NIQ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="speedLabel" destination="glC-5y-PDg" id="3ac-KP-YQA"/>
