@@ -12,16 +12,14 @@ class ViewController: NSViewController {
     
     @IBOutlet private weak var speedLabel: NSTextField!
     
-    let telemetery = Telemetry()
+    let telemetry = Telemetry()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        telemetery.delegate = self
+        telemetry.delegate = self
         speedLabel.font = NSFont.monospacedDigitSystemFont(ofSize: 42, weight: .regular)
         setLabel(value: "0")
-        
-        telemetery.start()
+        telemetry.start()
     }
     
     private let formatter: MeasurementFormatter = {
@@ -32,7 +30,6 @@ class ViewController: NSViewController {
         formatter.numberFormatter = numberFormatter
         return formatter
     }()
-
     
     private func setLabel(value: String) {
         DispatchQueue.main.async {

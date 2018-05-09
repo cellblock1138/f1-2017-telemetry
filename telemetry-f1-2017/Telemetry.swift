@@ -11,7 +11,7 @@ import AppKit
 class Telemetry {
     
     public weak var delegate: TelemetryDelegate?
-
+    
     private let communicationQueue = DispatchQueue(label: "MXHCommunicationQueue", qos: .userInteractive)
     
     private let refreshRate = 60.0
@@ -30,6 +30,10 @@ class Telemetry {
     
     private var timer: Timer!
     
+    
+    /// Use `start` to start listening to port.
+    /// When data is read from socket, the delegate method of
+    /// `packetUpdated` will be called with a `UDPPacket`
     public func start() {
         communicationQueue.async {
             self.timer = Timer(timeInterval: 1.0/self.refreshRate, target: self, selector: #selector(self.updateData), userInfo: nil, repeats: true)
@@ -95,5 +99,10 @@ class Telemetry {
 
 protocol TelemetryDelegate: AnyObject {
     
+    /// When a new valid packet is read, it this will be called
+    ///
+    /// - Parameters:
+    ///   - packet: the newly read packet
+    ///   - sender: the sender
     func packetUpdated(_ packet: UDPPacket, _ sender: Telemetry)
 }
