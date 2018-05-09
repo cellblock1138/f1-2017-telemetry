@@ -12,7 +12,6 @@ class ViewController: NSViewController {
     
     @IBOutlet weak var speedLabel: NSTextField!
     
-    
     let refreshRate = 60.0
     
     lazy var timer: Timer = {
@@ -38,17 +37,17 @@ class ViewController: NSViewController {
             
             RunLoop.main.add(self.timer, forMode: .commonModes)
         }
-
+        
         speedLabel.font = NSFont.monospacedDigitSystemFont(ofSize: 42, weight: .regular)
     }
     
     let formatter: MeasurementFormatter = {
-            let formatter = MeasurementFormatter()
-            formatter.unitStyle = .short
-            let numberFormatter = NumberFormatter()
-            numberFormatter.maximumFractionDigits = 0
-            formatter.numberFormatter = numberFormatter
-            return formatter
+        let formatter = MeasurementFormatter()
+        formatter.unitStyle = .short
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = 0
+        formatter.numberFormatter = numberFormatter
+        return formatter
     }()
     
     @objc func go() {
@@ -68,28 +67,28 @@ class ViewController: NSViewController {
     
     lazy var boundSocket: Int32 = {
         let port = 20777
+        
+        let sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)
+        guard sock != -1 else {
+            fatalError("error creating socket: \(sock)")
+        }
+        
+        var address = sockaddr_in()
+        address.sin_family = sa_family_t(AF_INET)
+        address.sin_port = in_port_t(htons(value: CUnsignedShort(port)))
+        address.sin_addr = in_addr(s_addr: INADDR_ANY)
+        
+        /// `int bind(int socket, const struct sockaddr *address, socklen_t address_len);`
+        /// use `withUnsafePointer` because pointer of address is needed
+        withUnsafePointer(to: &address) {
             
-            let sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)
-            guard sock != -1 else {
-                fatalError("error creating socket: \(sock)")
+            /// cast `sockaddr_in` -> `sockaddr` with `withMemoryRebound`
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                let b = Darwin.bind(sock, $0, address_len)
+                precondition(b == 0, "error binding socket. \(errno) \(String(utf8String: strerror(errno)) ?? "-")")
             }
-            
-            var address = sockaddr_in()
-            address.sin_family = sa_family_t(AF_INET)
-            address.sin_port = in_port_t(htons(value: CUnsignedShort(port)))
-            address.sin_addr = in_addr(s_addr: INADDR_ANY)
-            
-            /// `int bind(int socket, const struct sockaddr *address, socklen_t address_len);`
-            /// use `withUnsafePointer` because pointer of address is needed
-            withUnsafePointer(to: &address) {
-                
-                /// cast `sockaddr_in` -> `sockaddr` with `withMemoryRebound`
-                $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
-                    let b = Darwin.bind(sock, $0, address_len)
-                    precondition(b == 0, "error binding socket. \(errno) \(String(utf8String: strerror(errno)) ?? "-")")
-                }
-            }
-            return sock
+        }
+        return sock
     }()
     
     func read(fromSocket socket: Int32, into packet: UnsafeMutablePointer<UDPPacket>!) {
