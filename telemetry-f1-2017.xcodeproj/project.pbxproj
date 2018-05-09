@@ -20,7 +20,6 @@
 		A295004D209BE2B2003E6375 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2950050209BE2B2003E6375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2950052209BE2B2003E6375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2950053209BE2B2003E6375 /* telemetry_f1_2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = telemetry_f1_2017.entitlements; sourceTree = "<group>"; };
 		A2950059209BE32C003E6375 /* Packet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
 		A295005B209C0006003E6375 /* telemetry-f1-2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "telemetry-f1-2017.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +61,6 @@
 				A295004D209BE2B2003E6375 /* Assets.xcassets */,
 				A295004F209BE2B2003E6375 /* Main.storyboard */,
 				A2950052209BE2B2003E6375 /* Info.plist */,
-				A2950053209BE2B2003E6375 /* telemetry_f1_2017.entitlements */,
 			);
 			path = "telemetry-f1-2017";
 			sourceTree = "<group>";
