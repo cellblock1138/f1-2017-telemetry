@@ -11,6 +11,7 @@
 		A295004C209BE2B1003E6375 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A295004B209BE2B1003E6375 /* ViewController.swift */; };
 		A295004E209BE2B2003E6375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A295004D209BE2B2003E6375 /* Assets.xcassets */; };
 		A2950051209BE2B2003E6375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A295004F209BE2B2003E6375 /* Main.storyboard */; };
+		A2C4BD8E20A29193009827E8 /* Telemetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C4BD8D20A29193009827E8 /* Telemetry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		A2950052209BE2B2003E6375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2950059209BE32C003E6375 /* Packet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
 		A295005B209C0006003E6375 /* telemetry-f1-2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "telemetry-f1-2017.entitlements"; sourceTree = "<group>"; };
+		A2C4BD8D20A29193009827E8 /* Telemetry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telemetry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,15 +56,24 @@
 		A2950048209BE2B1003E6375 /* telemetry-f1-2017 */ = {
 			isa = PBXGroup;
 			children = (
-				A295005B209C0006003E6375 /* telemetry-f1-2017.entitlements */,
+				A295004F209BE2B2003E6375 /* Main.storyboard */,
 				A2950049209BE2B1003E6375 /* AppDelegate.swift */,
 				A295004B209BE2B1003E6375 /* ViewController.swift */,
+				A2C4BD8D20A29193009827E8 /* Telemetry.swift */,
 				A2950059209BE32C003E6375 /* Packet.h */,
-				A295004D209BE2B2003E6375 /* Assets.xcassets */,
-				A295004F209BE2B2003E6375 /* Main.storyboard */,
-				A2950052209BE2B2003E6375 /* Info.plist */,
+				A2C4BD8F20A291A3009827E8 /* Resources */,
 			);
 			path = "telemetry-f1-2017";
+			sourceTree = "<group>";
+		};
+		A2C4BD8F20A291A3009827E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A295004D209BE2B2003E6375 /* Assets.xcassets */,
+				A295005B209C0006003E6375 /* telemetry-f1-2017.entitlements */,
+				A2950052209BE2B2003E6375 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A295004C209BE2B1003E6375 /* ViewController.swift in Sources */,
+				A2C4BD8E20A29193009827E8 /* Telemetry.swift in Sources */,
 				A295004A209BE2B1003E6375 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,11 +288,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "telemetry-f1-2017/telemetry-f1-2017.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "telemetry-f1-2017/Resources/telemetry-f1-2017.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 68H32RGR9Z;
-				INFOPLIST_FILE = "telemetry-f1-2017/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/telemetry-f1-2017/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -296,11 +308,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "telemetry-f1-2017/telemetry-f1-2017.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "telemetry-f1-2017/Resources/telemetry-f1-2017.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 68H32RGR9Z;
-				INFOPLIST_FILE = "telemetry-f1-2017/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/telemetry-f1-2017/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
